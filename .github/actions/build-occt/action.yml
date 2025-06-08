@@ -36,13 +36,6 @@ runs:
   using: "composite"
   steps:
 
-    - name: Install Ninja (Windows Clang)
-      if: ${{ inputs.platform == 'windows' && inputs.compiler == 'clang' }}
-      run: |
-        choco install ninja -y
-        ninja --version
-      shell: pwsh
-
     - name: Configure OCCT (Windows MSVC)
       if: ${{ inputs.platform == 'windows' && inputs.compiler == 'msvc' }}
       run: |
@@ -167,6 +160,7 @@ runs:
               -D USE_TBB=OFF \
               -D USE_RAPIDJSON=OFF \
               -D USE_OPENGL=OFF \
+              -D USE_X11=OFF \
               -D BUILD_GTEST=OFF \
               -D BUILD_CPP_STANDARD=C++17 \
               -D BUILD_MODULE_Draw=OFF \
