@@ -116,6 +116,7 @@ runs:
         cmake -G "Unix Makefiles" \
               -D CMAKE_C_COMPILER=${{ inputs.compiler == 'clang' && 'clang' || 'gcc' }} \
               -D CMAKE_CXX_COMPILER=${{ inputs.compiler == 'clang' && 'clang++' || 'g++' }} \
+              -D CMAKE_OSX_ARCHITECTURES="x86_64;arm64" \
               -D BUILD_USE_PCH=${{ inputs.build-use-pch }} \
               -D BUILD_OPT_PROFILE=${{ inputs.build-opt-profile }} \
               -D BUILD_INCLUDE_SYMLINK=ON \
