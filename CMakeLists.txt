@@ -417,6 +417,7 @@ foreach (OCCT_MODULE ${OCCT_MODULES})
     list (APPEND BUILD_TOOLKITS ${OCCT_${OCCT_MODULE}_LIST_OF_TOOLKITS})
   endif()
 endforeach()
+message(STATUS "BUILD_TOOLKITS: ${BUILD_TOOLKITS}")
 
 # accumulate all used toolkits
 list (REMOVE_DUPLICATES BUILD_TOOLKITS)
